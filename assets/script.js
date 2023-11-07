@@ -31,9 +31,15 @@ const questions = [
     }
 ]
 
+const questionElement = document.getElementById("question");
+const answerBtn = document.getElementById("answer-btn");
+const nextBtn = document.querySelector("btn");
+
+let currentQuestionIndex = 0;
+
 
 function startQuiz() {
-
+    currentQuestionIndex = 0;
 }
 
 function checkAnswers() {
