@@ -1,5 +1,7 @@
 var startButton = document.querySelector('.btn');
 var questionEl = document.querySelector('#question');
+var randomButton = document.querySelector('.random');
+var randomUrl = 'https://www.thecocktaildb.com/api/json/v1/1/random.php';
 
 const questions = [
     {
@@ -42,5 +44,12 @@ function generateQuestions() {
     
 }
 
-
+function generateRandom() {
+    fetch(randomUrl)
+    .then((response) => response.json())
+    .then((data) => {
+    console.log(data)
+    })
+    
+}
 startButton.addEventListener('click', startQuiz())
