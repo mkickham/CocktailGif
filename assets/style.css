@@ -3,6 +3,10 @@
     text-align: center;
 }
 
+body {
+    background-image: url("../assets/images/Cocktailbackground.jpg");
+  }
+
 .main-contain p {
     text-align: center;
     font-size: 20px;

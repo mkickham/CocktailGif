@@ -12,22 +12,33 @@ const questions = [
         option4: 'Rum',
         option5: 'Tequila'
     },
-
     {
-        question2: 'Which flavor do you prefer?',
-        option1: 'Sweet',
-        option2: 'Fruity',
-        option3: 'Sour',
-        option4: 'Bitter',
-        option5: 'Spicy'
-    },
-    {
-        question3: 'Which vacation spot would you choose?',
+        question2: 'Which type of vacation would you choose?',
         option1: 'Beach',
         option2: 'Mountains',
-        option3: 'Big city',
-        option4: 'Camping trip',
-        option5: 'Ski trip'
+        option3: 'City',
+        option4: 'Camping'
+    },
+    {
+        question3: 'What is your favorite season?',
+        option1: 'Winter',
+        option2: 'Fall',
+        option3: 'Summer',
+        option4: 'Spring'
+    },
+    {
+        question4: 'Which dessert would you choose?',
+        option1: 'Chocolate Cake',
+        option2: 'Ice Cream',
+        option3: 'Fruit Salad',
+        option4: 'Cheesecake'
+    },
+    {
+        question5: 'Which of the following would be describe your personality?',
+        option1: 'Outgoing',
+        option2: 'Introverted',
+        option3: 'Adventurous',
+        option4: 'Cautious'
     }
 ]
 
