@@ -1,4 +1,8 @@
 
+body {
+    background-image: url("../assets/images/Cocktailbackground.jpg");
+  }
+
 .header h1 {
     margin: 50px;
     color: rgb(196, 139, 212);
