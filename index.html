@@ -5,14 +5,26 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="./assets/style.css">
     <title>Cocktail GIF</title>
+    <style>
+        .main-contain {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+    </style>
 </head>
 <body>
     <header class="header">
         <h1>Placeholder</h1>
+        <p>Complete the quiz to find the perfect cocktail for you</p>
     </header>
     
-    <div class="main-contain">
-        <p>Complete the quiz to find the perfect cocktail for you</p>
+    <main>
+        <div class="main-contain">
+            <button id="btn" class="btn">Start</button>
+        <button class="random" onclick="generateRandom()">Random</button>
+        </div>
+
         <div class="quiz">
             <h2 id="question">Placeholder question</h2>
             <div id="answer-btn">
@@ -23,14 +35,14 @@
                 <button class="answerBTN" id="option5">5th Answer</button>
             </div>
         </div>
-        <div class="start-cont">
+
         <button class="btn">Start</button>
-            </div>
+          
         <button class="random" onclick="generateRandom()">Random</button>
 
-        <img class="GIF">
-    </div>
 
+        <img class="GIF">
+    </main>
     <script src="./assets/script.js"></script>
 
 </body>
