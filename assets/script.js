@@ -2,10 +2,14 @@ var startButton = document.querySelector('.btn');
 var questionEl = document.querySelector('#question');
 var randomButton = document.querySelector('.random');
 var randomUrl = 'https://www.thecocktaildb.com/api/json/v1/1/random.php';
+var q1Answer = '';
+var q2Answer = '';
+var q3Answer = '';
+var q = '';
 
-const questions = [
+var questions = [
     {
-        question1: 'Which alcohol base do you prefer?',
+        question: 'Which alcohol base do you prefer?',
         option1: 'Vodka',
         option2: 'Whiskey',
         option3: 'Gin',
@@ -13,28 +17,36 @@ const questions = [
         option5: 'Tequila'
     },
     {
-        question2: 'Which type of vacation would you choose?',
+        question: 'Which flavor do you prefer?',
+        option1: 'Sweet',
+        option2: 'Fruity',
+        option3: 'Sour',
+        option4: 'Bitter',
+        option5: 'Spicy'
+    },
+    {
+        question: 'Which type of vacation would you choose?',
         option1: 'Beach',
         option2: 'Mountains',
         option3: 'City',
         option4: 'Camping'
     },
     {
-        question3: 'What is your favorite season?',
+        question: 'What is your favorite season?',
         option1: 'Winter',
         option2: 'Fall',
         option3: 'Summer',
         option4: 'Spring'
     },
     {
-        question4: 'Which dessert would you choose?',
+        question: 'Which dessert would you choose?',
         option1: 'Chocolate Cake',
         option2: 'Ice Cream',
         option3: 'Fruit Salad',
         option4: 'Cheesecake'
     },
     {
-        question5: 'Which of the following would be describe your personality?',
+        question: 'Which of the following would be describe your personality?',
         option1: 'Outgoing',
         option2: 'Introverted',
         option3: 'Adventurous',
@@ -46,19 +58,60 @@ const questionElement = document.getElementById("question");
 const answerBtn = document.getElementById("answer-btn");
 const nextBtn = document.querySelector("btn");
 
-let currentQuestionIndex = 0;
+let currentQuestionIndex = questions[0];
 
-
+// this starts the quiz and then once the quiz is started it hides the start button
 function startQuiz() {
+    console.log('start')
     currentQuestionIndex = 0;
-}
-
-function checkAnswers() {
-
-}
-
-function generateQuestions() {
+    q = generateQuestions(q);
     
+   // startButton.style.display = 'none';
+}
+
+function resetState(){
+   // nextBtn.style.display = 'none';
+    while(answerBtn.firstChild){
+        answerBtn.removeChild(answerBtn.firstChild);
+    }
+}
+
+// create variable for each option
+
+function generateQuestions(q){
+   // resetState();
+    q = questions.pop();
+    questionEl.textContent = q.question;
+    option1.textContent = q.option1;
+    option2.textContent = q.option2;
+    option3.textContent = q.option3;
+    option4.textContent = q.option4;
+    option5.textContent = q.option5;
+    
+    // figure out if we need new button or use start button
+    // document.querySelector('answerBTN').textContent = 'Next Question';
+    if (currentQuestionIndex < questions.length){
+        currentQuestionIndex++;
+    } else {
+        navigateToScore();
+    }
+    return q;
+
+}
+var answer;
+function checkAnswers() {
+const optionButtons = document.querySelectorAll('.answerBTN');
+optionButtons.forEach(optionbuttons => {
+    optionbuttons.addEventListener('click', processClick);
+})
+}
+
+function processClick() {
+    answer = this.id;
+}
+
+function navigateToScore(){
+    // some way to navigate to the page with your drink choice and gif
 }
 
 function generateRandom() {
@@ -69,4 +122,6 @@ function generateRandom() {
     })
     
 }
-startButton.addEventListener('click', startQuiz())
+startButton.addEventListener('click', startQuiz)
+ console.log(q)
+ 
