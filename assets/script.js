@@ -37,17 +37,47 @@ const nextBtn = document.querySelector("btn");
 
 let currentQuestionIndex = 0;
 
-
+// this starts the quiz and then once the quiz is started it hides the start button
 function startQuiz() {
     currentQuestionIndex = 0;
+    generateQuestions();
+    startButton.style.display = 'none';
+}
+
+function resetState(){
+    nextBtn.style.display = 'none';
+    while(answerBtn.firstChild){
+        answerBtn.removeChild(answerBtn.firstChild);
+    }
+}
+
+// create variable for each option
+
+function generateQuestions(q){
+    resetState();
+    q = questions.pop();
+    questionEl.textContent = q.question1;
+    option1.textContent = q.option1;
+    option2.textContent = q.option2;
+    option3.textContent = q.option3;
+    option4.textContent = q.option4;
+    option5.textContent = q.option5;
+    // figure out if we need new button or use start button
+    // document.querySelector('answerBTN').textContent = 'Next Question';
+    if (q < questions.length){
+        currentQuestionIndex++;
+    } else {
+        navigateToScore();
+    }
+
 }
 
 function checkAnswers() {
 
 }
 
-function generateQuestions() {
-    
+function navigateToScore(){
+    // some way to navigate to the page with your drink choice and gif
 }
 
 function generateRandom() {
