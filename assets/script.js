@@ -2,6 +2,9 @@ var startButton = document.querySelector('.btn');
 var questionEl = document.querySelector('#question');
 var randomButton = document.querySelector('.random');
 var randomUrl = 'https://www.thecocktaildb.com/api/json/v1/1/random.php';
+var q1Answer = '';
+var q2Answer = '';
+var q3Answer = '';
 
 const questions = [
     {
@@ -41,9 +44,16 @@ let currentQuestionIndex = 0;
 function startQuiz() {
     currentQuestionIndex = 0;
 }
-
+var answer;
 function checkAnswers() {
+const optionButtons = document.querySelectorAll('.answerBTN');
+optionButtons.forEach(optionbuttons => {
+    optionbuttons.addEventListener('click', processClick());
+})
+}
 
+function processClick() {
+    answer = this.id;
 }
 
 function generateQuestions() {
