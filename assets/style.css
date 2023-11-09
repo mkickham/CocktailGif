@@ -22,7 +22,7 @@
 
 .quiz {
     text-align: center;
-    display: none;
+   /* display: none;*/
 }
 
 #question {
@@ -44,4 +44,7 @@
     padding: 20px;
     font-size: large;
     border-radius: 10px;
+}
+.start-cont {
+    text-align: center;
 }

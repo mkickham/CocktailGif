@@ -5,10 +5,11 @@ var randomUrl = 'https://www.thecocktaildb.com/api/json/v1/1/random.php';
 var q1Answer = '';
 var q2Answer = '';
 var q3Answer = '';
+var q = '';
 
-const questions = [
+var questions = [
     {
-        question1: 'Which alcohol base do you prefer?',
+        question: 'Which alcohol base do you prefer?',
         option1: 'Vodka',
         option2: 'Whiskey',
         option3: 'Gin',
@@ -17,7 +18,7 @@ const questions = [
     },
 
     {
-        question2: 'Which flavor do you prefer?',
+        question: 'Which flavor do you prefer?',
         option1: 'Sweet',
         option2: 'Fruity',
         option3: 'Sour',
@@ -25,7 +26,7 @@ const questions = [
         option5: 'Spicy'
     },
     {
-        question3: 'Which vacation spot would you choose?',
+        question: 'Which vacation spot would you choose?',
         option1: 'Beach',
         option2: 'Mountains',
         option3: 'Big city',
@@ -38,17 +39,19 @@ const questionElement = document.getElementById("question");
 const answerBtn = document.getElementById("answer-btn");
 const nextBtn = document.querySelector("btn");
 
-let currentQuestionIndex = 0;
+let currentQuestionIndex = questions[0];
 
 // this starts the quiz and then once the quiz is started it hides the start button
 function startQuiz() {
+    console.log('start')
     currentQuestionIndex = 0;
-    generateQuestions();
-    startButton.style.display = 'none';
+    q = generateQuestions(q);
+    
+   // startButton.style.display = 'none';
 }
 
 function resetState(){
-    nextBtn.style.display = 'none';
+   // nextBtn.style.display = 'none';
     while(answerBtn.firstChild){
         answerBtn.removeChild(answerBtn.firstChild);
     }
@@ -57,28 +60,30 @@ function resetState(){
 // create variable for each option
 
 function generateQuestions(q){
-    resetState();
+   // resetState();
     q = questions.pop();
-    questionEl.textContent = q.question1;
+    questionEl.textContent = q.question;
     option1.textContent = q.option1;
     option2.textContent = q.option2;
     option3.textContent = q.option3;
     option4.textContent = q.option4;
     option5.textContent = q.option5;
+    
     // figure out if we need new button or use start button
     // document.querySelector('answerBTN').textContent = 'Next Question';
-    if (q < questions.length){
+    if (currentQuestionIndex < questions.length){
         currentQuestionIndex++;
     } else {
         navigateToScore();
     }
+    return q;
 
 }
 var answer;
 function checkAnswers() {
 const optionButtons = document.querySelectorAll('.answerBTN');
 optionButtons.forEach(optionbuttons => {
-    optionbuttons.addEventListener('click', processClick());
+    optionbuttons.addEventListener('click', processClick);
 })
 }
 
@@ -98,4 +103,6 @@ function generateRandom() {
     })
     
 }
-startButton.addEventListener('click', startQuiz())
+startButton.addEventListener('click', startQuiz)
+ console.log(q)
+ 
