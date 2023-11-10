@@ -5,7 +5,7 @@ var randomUrl = 'https://www.thecocktaildb.com/api/json/v1/1/random.php';
 var q1Answer = '';
 var q2Answer = '';
 var q3Answer = '';
-var q = '';
+var currentQuestion = '';
 
 var questions = [
     {
@@ -54,16 +54,17 @@ var questions = [
     }
 ]
 
+// var question1 = questions[0]
+
 const questionElement = document.getElementById("question");
 const answerBtn = document.getElementById("answer-btn");
 const nextBtn = document.querySelector("btn");
 
-let currentQuestionIndex = questions[0];
+let currentQuestionIndex = 0;
 
 // this starts the quiz and then once the quiz is started it hides the start button
 function startQuiz() {
-    currentQuestionIndex = 0;
-    q = generateQuestions(q);
+    generateQuestions();
     
    // startButton.style.display = 'none';
 }
@@ -77,36 +78,33 @@ function resetState(){
 
 // create variable for each option
 
-function generateQuestions(q){
+function generateQuestions(){
    // resetState();
-    q = questions.pop();
-    questionEl.textContent = q.question;
-    option1.textContent = q.option1;
-    option2.textContent = q.option2;
-    option3.textContent = q.option3;
-    option4.textContent = q.option4;
-    option5.textContent = q.option5;
+    var question = questions[currentQuestionIndex]
+    questionEl.textContent = question.question;
+    option1.textContent = question.option1;
+    option2.textContent = question.option2;
+    option3.textContent = question.option3;
+    option4.textContent = question.option4;
+    option5.textContent = question.option5;
     
-    // figure out if we need new button or use start button
-    // document.querySelector('answerBTN').textContent = 'Next Question';
-    if (currentQuestionIndex < questions.length){
-        currentQuestionIndex++;
-    } else {
-        navigateToScore();
-    }
-    return q;
-
 }
 var answer;
 function checkAnswers(answer) {
-const optionButtons = document.querySelectorAll('.answerBTN');
-optionButtons.forEach(optionbuttons => {
-    optionbuttons.addEventListener('click', processClick);
-})
 }
 
 function processClick(answer) {
     answer = this.id;
+}
+
+function loadNextQuestion(){ 
+    console.log(currentQuestionIndex)
+    if (currentQuestionIndex === questions.length - 1) {
+        navigateToScore();
+    } else {
+    currentQuestionIndex++;
+    generateQuestions();
+    }
 }
 
 function navigateToScore(){
@@ -126,8 +124,7 @@ let obj = document.getElementById('answer-btn');
 let varia;
 obj.addEventListener('click', function(event) {
     varia = event.target.textContent;
-    console.log(varia);
+    loadNextQuestion();
 })
 startButton.addEventListener('click', startQuiz)
- console.log(q)
  
