@@ -84,7 +84,6 @@ function generateQuestions(){
     option2.textContent = question.option2;
     option3.textContent = question.option3;
     option4.textContent = question.option4;
-    option5.textContent = question.option5;
     
 }
 var answer;
@@ -106,7 +105,8 @@ function loadNextQuestion(){
 }
 
 function navigateToScore(){
-    // some way to navigate to the page with your drink choice and gif
+    document.querySelector('.quiz').style.display = 'none';
+    document.getElementById('resultContainer').style.display = 'block';
 }
 
 function generateRandom() {
