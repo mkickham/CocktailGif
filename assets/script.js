@@ -62,7 +62,6 @@ let currentQuestionIndex = questions[0];
 
 // this starts the quiz and then once the quiz is started it hides the start button
 function startQuiz() {
-    console.log('start')
     currentQuestionIndex = 0;
     q = generateQuestions(q);
     
@@ -99,14 +98,14 @@ function generateQuestions(q){
 
 }
 var answer;
-function checkAnswers() {
+function checkAnswers(answer) {
 const optionButtons = document.querySelectorAll('.answerBTN');
 optionButtons.forEach(optionbuttons => {
     optionbuttons.addEventListener('click', processClick);
 })
 }
 
-function processClick() {
+function processClick(answer) {
     answer = this.id;
 }
 
@@ -122,6 +121,13 @@ function generateRandom() {
     })
     
 }
+
+let obj = document.getElementById('answer-btn');
+let varia;
+obj.addEventListener('click', function(event) {
+    varia = event.target.textContent;
+    console.log(varia);
+})
 startButton.addEventListener('click', startQuiz)
  console.log(q)
  
