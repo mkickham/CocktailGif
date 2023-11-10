@@ -89,7 +89,7 @@ function generateQuestions(){
     option5.textContent = question.option5;
     
 }
-var answer;
+
 function checkAnswers(answer) {
 }
 
@@ -119,12 +119,13 @@ function generateRandom() {
     })
     
 }
-
+var answers = [];
 let obj = document.getElementById('answer-btn');
 let varia;
 obj.addEventListener('click', function(event) {
     varia = event.target.textContent;
+    answers.push(varia);
     loadNextQuestion();
 })
 startButton.addEventListener('click', startQuiz)
- 
+ console.log(answers)
