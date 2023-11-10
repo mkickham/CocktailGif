@@ -10,9 +10,10 @@ body {
 }
 
 .header p {
-    margin: 50px;
+    margin: 20px;
     text-align: center;
     font-size: 20px;
+    color: white
 }
 
 #btn {
@@ -50,4 +51,8 @@ body {
     font-size: 20px;
     border-radius: 10px;
     width: 150px;
+}
+
+#question {
+    color: white;
 }
