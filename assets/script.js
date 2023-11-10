@@ -12,17 +12,15 @@ var questions = [
         question: 'Which alcohol base do you prefer?',
         option1: 'Vodka',
         option2: 'Whiskey',
-        option3: 'Gin',
-        option4: 'Rum',
-        option5: 'Tequila'
+        option3: 'Tequila',
+        option4: 'Rum'
     },
     {
         question: 'Which flavor do you prefer?',
         option1: 'Sweet',
-        option2: 'Fruity',
+        option2: 'spicy',
         option3: 'Sour',
-        option4: 'Bitter',
-        option5: 'Spicy'
+        option4: 'Bitter'
     },
     {
         question: 'Which type of vacation would you choose?',
