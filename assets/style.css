@@ -1,6 +1,12 @@
 
 body {
     background-image: url("../assets/images/Cocktailbackground.jpg");
+    background-size: cover;
+  }
+
+  body,
+  html {
+    height: 100%;
   }
 
 .header h1 {
