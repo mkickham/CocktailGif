@@ -2,10 +2,10 @@ var startButton = document.querySelector('.btn');
 var questionEl = document.querySelector('#question');
 var randomButton = document.querySelector('.random');
 var randomUrl = 'https://www.thecocktaildb.com/api/json/v1/1/random.php';
-var q1Answer = '';
-var q2Answer = '';
+
 var q3Answer = '';
 var currentQuestion = '';
+var drinkUrl = 'https://www.thecocktaildb.com/api/json/v1/1/search.php?i='
 
 var questions = [
     {
@@ -107,6 +107,7 @@ function loadNextQuestion(){
 function navigateToScore(){
     document.querySelector('.quiz').style.display = 'none';
     document.getElementById('resultContainer').style.display = 'block';
+    resultHandler()
 }
 
 function generateRandom() {
@@ -123,13 +124,47 @@ let varia;
 obj.addEventListener('click', function(event) {
     varia = event.target.textContent;
     answers.push(varia);
-    var q1Answer = answers[0];
-    var q2Answer = answers[1];
-    console.log(q1Answer);
-    console.log(q2Answer);
     loadNextQuestion();
     
 })
+var q1Answer = answers[0];
+var q2Answer = answers[1];
+
+function resultHandler() {
+    var instructions = document.getElementById('instructions');
+    var drinkName = document.getElementById('drink-name');
+    var yourDrink;
+    if(answers[0] === 'Vodka' && answers[1] === 'Sweet') {
+        yourDrink = 'moscow_mule';
+    } else if(answers[0] === 'Vodka' && answers[1] === 'Sour'){
+        yourDrink = 'vodka_lemon';
+    } else if(answers[0] === 'Whiskey' && answers[1] === 'Sweet'){
+        yourDrink = 'hot_toddy';
+    } else if(answers[0] === 'Whiskey' && answers[1] === 'Sour'){
+        yourDrink = 'owen%27s_grandmother%27s_revenge';
+    } else if(answers[0] === 'Tequila' && answers[1] === 'Sweet'){
+        yourDrink = 'margarita';
+    } else if(answers[0] === 'Tequila' && answers[1] === 'Sour'){
+        yourDrink = 'tequila_sour';
+    } else if(answers[0] === 'Rum' && answers[1] === 'Sweet'){
+        yourDrink = 'rum_punch';
+    } else if(answers[0] === 'Rum' && answers[1] === 'Sour'){
+        yourDrink = 'rum_sour';
+    } else {
+
+    }
+    fetch('https://www.thecocktaildb.com/api/json/v1/1/search.php?s=' + yourDrink)
+    .then(response => response.json())
+    .then((data) => {
+    drinkName.textContent = data.drinks[0].strDrink;
+    instructions.textContent = data.drinks[0].strInstructions;
+
+    console.log(data)
+    })
+}
+
+
+
 
 startButton.addEventListener('click', startQuiz)
  
