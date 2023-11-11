@@ -134,25 +134,35 @@ var q1Answer = answers[0];
 var q2Answer = answers[1];
 
 function resultHandler() {
+    var drinkImage;
     var instructions = document.getElementById('instructions');
     var drinkName = document.getElementById('drink-name');
     var yourDrink;
+    var drinkPhoto = document.getElementById('drink-image');
     if(answers[0] === 'Vodka' && answers[1] === 'Sweet') {
         yourDrink = 'moscow_mule';
+        drinkImage = './assets/images/MoscowMule.jpg';
     } else if(answers[0] === 'Vodka' && answers[1] === 'Sour'){
         yourDrink = 'vodka_lemon';
+        drinkImage = './assets/images/vodka_lemon.jpg';
     } else if(answers[0] === 'Whiskey' && answers[1] === 'Sweet'){
         yourDrink = 'hot_toddy';
+        drinkImage = './assets/images/hot_toddy.jpg';
     } else if(answers[0] === 'Whiskey' && answers[1] === 'Sour'){
         yourDrink = 'owen%27s_grandmother%27s_revenge';
+        drinkImage = './assets/images/owens_grandmothers_revenge.jpg';
     } else if(answers[0] === 'Tequila' && answers[1] === 'Sweet'){
         yourDrink = 'margarita';
+        drinkImage = './assets/images/margarita.jpg';
     } else if(answers[0] === 'Tequila' && answers[1] === 'Sour'){
         yourDrink = 'tequila_sour';
+        drinkImage = './assets/images/tequila_sour.jpg';
     } else if(answers[0] === 'Rum' && answers[1] === 'Sweet'){
         yourDrink = 'rum_punch';
+        drinkImage = './assets/images/rum_punch.jpg';
     } else if(answers[0] === 'Rum' && answers[1] === 'Sour'){
         yourDrink = 'rum_sour';
+        drinkImage = './assets/images/rum_sour.jpg';
     } else {
         generateRandom();
     }
@@ -161,6 +171,8 @@ function resultHandler() {
     .then((data) => {
     drinkName.textContent = data.drinks[0].strDrink;
     instructions.textContent = data.drinks[0].strInstructions;
+    drinkPhoto.innerHTML = '<img src=' + drinkImage + '></img>'
+    
 
     console.log(data)
     })
