@@ -88,12 +88,6 @@ function generateQuestions(){
     
 }
 
-function checkAnswers(answer) {
-}
-
-function processClick(answer) {
-    answer = this.id;
-}
 
 function loadNextQuestion(){ 
     console.log(currentQuestionIndex)
@@ -112,12 +106,23 @@ function navigateToScore(){
 }
 
 function generateRandom() {
+    var drinkIngr = document.getElementById('ingredients');
     var drinkName = document.getElementById('drink-name');
     fetch(randomUrl)
     .then((response) => response.json())
     .then((data) => {
     drinkName.textContent = data.drinks[0].strDrink;
     instructions.textContent = data.drinks[0].strInstructions;
+    drinkIngr.textContent = 'Ingredients: ' + data.drinks[0].strIngredient1 + ', ' + data.drinks[0].strIngredient2 + ', ' + data.drinks[0].strIngredient3;
+    })
+
+    var giphyRandom = document.getElementById('giphy')
+
+    fetch('https://api.giphy.com/v1/gifs/random?api_key=CmG15QVxvHNsJsCVS3PmV1qNaz5bhK3g&tag=alcohol&rating=g')
+    .then(response => response.json())
+    .then((data) => {
+        console.log(data);
+        giphyRandom.innerHTML = "<img src=" + data.data.images.original.url + "></img>"
     })
     
 }
@@ -139,6 +144,7 @@ function resultHandler() {
     var drinkName = document.getElementById('drink-name');
     var yourDrink;
     var drinkPhoto = document.getElementById('drink-image');
+    var drinkIngr = document.getElementById('ingredients');
     if(answers[0] === 'Vodka' && answers[1] === 'Sweet') {
         yourDrink = 'moscow_mule';
         drinkImage = './assets/images/MoscowMule.jpg';
@@ -171,6 +177,7 @@ function resultHandler() {
     .then((data) => {
     drinkName.textContent = data.drinks[0].strDrink;
     instructions.textContent = data.drinks[0].strInstructions;
+    drinkIngr.textContent = 'Ingredients: ' + data.drinks[0].strIngredient1 + ', ' + data.drinks[0].strIngredient2 + ', ' + data.drinks[0].strIngredient3;
     drinkPhoto.innerHTML = '<img src=' + drinkImage + '></img>'
     
 

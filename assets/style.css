@@ -96,3 +96,16 @@ body {
 #instructions {
     text-align: center;
 }
+
+#ingredients {
+    text-align: center;
+}
+
+#giphy {
+    text-align: center;
+}
+
+#drink-image {
+    text-align: center;
+    max-width: 400px;
+}
