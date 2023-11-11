@@ -2,6 +2,7 @@ var startButton = document.querySelector('.btn');
 var questionEl = document.querySelector('#question');
 var randomButton = document.querySelector('.random');
 var randomUrl = 'https://www.thecocktaildb.com/api/json/v1/1/random.php';
+const giphyURL = 'https://api.giphy.com/v1/gifs/random?api_key=CmG15QVxvHNsJsCVS3PmV1qNaz5bhK3g&tag=&rating=g'
 
 var q3Answer = '';
 var currentQuestion = '';
@@ -111,10 +112,12 @@ function navigateToScore(){
 }
 
 function generateRandom() {
+    var drinkName = document.getElementById('drink-name');
     fetch(randomUrl)
     .then((response) => response.json())
     .then((data) => {
-    console.log(data)
+    drinkName.textContent = data.drinks[0].strDrink;
+    instructions.textContent = data.drinks[0].strInstructions;
     })
     
 }
@@ -151,7 +154,7 @@ function resultHandler() {
     } else if(answers[0] === 'Rum' && answers[1] === 'Sour'){
         yourDrink = 'rum_sour';
     } else {
-
+        generateRandom();
     }
     fetch('https://www.thecocktaildb.com/api/json/v1/1/search.php?s=' + yourDrink)
     .then(response => response.json())
@@ -160,6 +163,15 @@ function resultHandler() {
     instructions.textContent = data.drinks[0].strInstructions;
 
     console.log(data)
+    })
+
+    var giphyRandom = document.getElementById('giphy')
+
+    fetch('https://api.giphy.com/v1/gifs/random?api_key=CmG15QVxvHNsJsCVS3PmV1qNaz5bhK3g&tag=alcohol&rating=g')
+    .then(response => response.json())
+    .then((data) => {
+        console.log(data);
+        giphyRandom.innerHTML = "<img src=" + data.data.images.original.url + "></img>"
     })
 }
 
