@@ -80,3 +80,19 @@ body {
 #question {
     color: white;
 }
+
+#resultContainer {
+    color: black;
+    background-color: rgba(255, 255, 255, 0.608);
+    margin: 75px;
+    padding: 30px;
+}
+
+#drink-name {
+    text-align: center;
+    font-size: 25px;
+}
+
+#instructions {
+    text-align: center;
+}
