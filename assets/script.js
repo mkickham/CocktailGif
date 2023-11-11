@@ -123,7 +123,13 @@ let varia;
 obj.addEventListener('click', function(event) {
     varia = event.target.textContent;
     answers.push(varia);
+    var q1Answer = answers[0];
+    var q2Answer = answers[1];
+    console.log(q1Answer);
+    console.log(q2Answer);
     loadNextQuestion();
+    
 })
+
 startButton.addEventListener('click', startQuiz)
- console.log(answers)
+ 
