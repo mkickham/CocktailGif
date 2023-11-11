@@ -18,7 +18,7 @@ var questions = [
     {
         question: 'Which flavor do you prefer?',
         option1: 'Sweet',
-        option2: 'spicy',
+        option2: 'Spicy',
         option3: 'Sour',
         option4: 'Bitter'
     },

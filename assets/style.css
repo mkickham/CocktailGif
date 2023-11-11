@@ -2,6 +2,7 @@
 body {
     background-image: url("../assets/images/Cocktailbackground.jpg");
     background-size: cover;
+
   }
 
   body,
@@ -10,22 +11,24 @@ body {
   }
 
 .header h1 {
-    margin: 50px;
-    color: rgb(196, 139, 212);
+    margin-top: 50px;
+    padding: 20px;
+    color: white;
     text-align: center;
+    font-size: 75px;
+    border-bottom-style: white ;
 }
 
 .header p {
-    margin: 20px;
+    padding: 10px;
     text-align: center;
     font-size: 20px;
     color: white
 }
 
 #btn {
-    border: none;
     padding: 10px;
-    background-color: rgb(196, 139, 212);
+    background-color: black;
     color: white;
     border-radius: 10px;
     font-size: 20px;
@@ -39,17 +42,31 @@ body {
 }
 
 #question {
-    margin: 15px;
-    height: 50px;
+    margin: 20px;
+    font-size: 25px;
 }
 
 #answer-btn {
     display: inline-block;
-    padding: 5px;
+    padding: 20px;
+}
+
+.answerBTN {
+    border: none;
+    padding: 10px;
+    border-radius: 5px;
+    background-color: black;
+    color: white;
+    width: 190px;
+    font-size: 20px;
+    box-shadow: 1.5px 1.5px orange;
+}
+
+.answerBTN:hover {
+    background-color: gray;
 }
 
 .random {
-    border: none;
     background-color: black;
     color: white;
     margin: 20px;
@@ -57,6 +74,7 @@ body {
     font-size: 20px;
     border-radius: 10px;
     width: 150px;
+    cursor: pointer;
 }
 
 #question {
