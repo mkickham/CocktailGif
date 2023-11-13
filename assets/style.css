@@ -7,7 +7,7 @@ body {
 
   body,
   html {
-    height: 100%;
+    height: max-content;
   }
 
 .header h1 {
@@ -95,17 +95,15 @@ body {
 
 #instructions {
     text-align: center;
+    
 }
 
 #ingredients {
     text-align: center;
+    padding: 5px;
 }
 
 #giphy {
     text-align: center;
-}
-
-#drink-image {
-    text-align: center;
-    max-width: 400px;
+    padding: 20px;
 }
