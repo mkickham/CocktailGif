@@ -7,7 +7,7 @@ body {
 
   body,
   html {
-    height: max-content;
+    height: 100vh;
   }
 
 .header h1 {
@@ -86,6 +86,7 @@ body {
     background-color: rgba(255, 255, 255, 0.608);
     margin: 75px;
     padding: 30px;
+    height: 100%;
 }
 
 #drink-name {
@@ -106,4 +107,8 @@ body {
 #giphy {
     text-align: center;
     padding: 20px;
+}
+
+#giphy img {
+    max-height: 200px;
 }
