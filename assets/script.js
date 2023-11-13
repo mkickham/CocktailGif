@@ -64,9 +64,12 @@ let currentQuestionIndex = 0;
 // this starts the quiz and then once the quiz is started it hides the start button
 function startQuiz() {
     generateQuestions();
+    document.getElementById("btn").style.display = 'none';
     
    // startButton.style.display = 'none';
 }
+
+document.getElementById("btn").addEventListener("click", startQuiz);
 
 function resetState(){
    // nextBtn.style.display = 'none';
