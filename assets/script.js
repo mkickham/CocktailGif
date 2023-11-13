@@ -64,9 +64,12 @@ let currentQuestionIndex = 0;
 // this starts the quiz and then once the quiz is started it hides the start button
 function startQuiz() {
     generateQuestions();
+    document.getElementById("btn").style.display = 'none';
     
    // startButton.style.display = 'none';
 }
+
+document.getElementById("btn").addEventListener("click", startQuiz);
 
 function resetState(){
    // nextBtn.style.display = 'none';
@@ -88,12 +91,6 @@ function generateQuestions(){
     
 }
 
-function checkAnswers(answer) {
-}
-
-function processClick(answer) {
-    answer = this.id;
-}
 
 function loadNextQuestion(){ 
     console.log(currentQuestionIndex)
@@ -112,12 +109,23 @@ function navigateToScore(){
 }
 
 function generateRandom() {
+    var drinkIngr = document.getElementById('ingredients');
     var drinkName = document.getElementById('drink-name');
     fetch(randomUrl)
     .then((response) => response.json())
     .then((data) => {
     drinkName.textContent = data.drinks[0].strDrink;
     instructions.textContent = data.drinks[0].strInstructions;
+    drinkIngr.textContent = 'Ingredients: ' + data.drinks[0].strIngredient1 + ', ' + data.drinks[0].strIngredient2 + ', ' + data.drinks[0].strIngredient3;
+    })
+
+    var giphyRandom = document.getElementById('giphy')
+
+    fetch('https://api.giphy.com/v1/gifs/random?api_key=CmG15QVxvHNsJsCVS3PmV1qNaz5bhK3g&tag=alcohol&rating=g')
+    .then(response => response.json())
+    .then((data) => {
+        console.log(data);
+        giphyRandom.innerHTML = "<img src=" + data.data.images.original.url + "></img>"
     })
     
 }
@@ -134,35 +142,27 @@ var q1Answer = answers[0];
 var q2Answer = answers[1];
 
 function resultHandler() {
-    var drinkImage;
     var instructions = document.getElementById('instructions');
     var drinkName = document.getElementById('drink-name');
     var yourDrink;
     var drinkPhoto = document.getElementById('drink-image');
+    var drinkIngr = document.getElementById('ingredients');
     if(answers[0] === 'Vodka' && answers[1] === 'Sweet') {
         yourDrink = 'moscow_mule';
-        drinkImage = './assets/images/MoscowMule.jpg';
     } else if(answers[0] === 'Vodka' && answers[1] === 'Sour'){
         yourDrink = 'vodka_lemon';
-        drinkImage = './assets/images/vodka_lemon.jpg';
     } else if(answers[0] === 'Whiskey' && answers[1] === 'Sweet'){
         yourDrink = 'hot_toddy';
-        drinkImage = './assets/images/hot_toddy.jpg';
     } else if(answers[0] === 'Whiskey' && answers[1] === 'Sour'){
         yourDrink = 'owen%27s_grandmother%27s_revenge';
-        drinkImage = './assets/images/owens_grandmothers_revenge.jpg';
     } else if(answers[0] === 'Tequila' && answers[1] === 'Sweet'){
         yourDrink = 'margarita';
-        drinkImage = './assets/images/margarita.jpg';
     } else if(answers[0] === 'Tequila' && answers[1] === 'Sour'){
         yourDrink = 'tequila_sour';
-        drinkImage = './assets/images/tequila_sour.jpg';
     } else if(answers[0] === 'Rum' && answers[1] === 'Sweet'){
         yourDrink = 'rum_punch';
-        drinkImage = './assets/images/rum_punch.jpg';
     } else if(answers[0] === 'Rum' && answers[1] === 'Sour'){
         yourDrink = 'rum_sour';
-        drinkImage = './assets/images/rum_sour.jpg';
     } else {
         generateRandom();
     }
@@ -171,7 +171,7 @@ function resultHandler() {
     .then((data) => {
     drinkName.textContent = data.drinks[0].strDrink;
     instructions.textContent = data.drinks[0].strInstructions;
-    drinkPhoto.innerHTML = '<img src=' + drinkImage + '></img>'
+    drinkIngr.textContent = 'Ingredients: ' + data.drinks[0].strIngredient1 + ', ' + data.drinks[0].strIngredient2 + ', ' + data.drinks[0].strIngredient3;
     
 
     console.log(data)
