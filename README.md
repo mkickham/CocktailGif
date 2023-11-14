@@ -2,7 +2,7 @@
 
 ## Description
 
-This application is a cocktail quiz to find a cocktail of choice based on the answers the user picks. There is an API that has a stored list of cocktails that this application pulls from. When a cocktail is chosen, a GIF will pop up as well which is also being pulled from an API that stores GIFs. This is a collaborative project to create an application that solves a real-world problem requiring continuous communication and teamwork between students. Learning how to incorporate API's into a code and collaboriating with multiple people is good practice for jobs after bootcamp.
+This application is a cocktail quiz to find a cocktail of choice based on the answers the user picks. There is an API that has a stored list of cocktails that this application pulls from. When a cocktail is chosen, a GIF will pop up as well which is also being pulled from Giphy API that stores GIFs. Bulma CSS framework was used to create the options buttons on the quiz.This is a collaborative project to create an application that solves a real-world problem requiring continuous communication and teamwork between students. Learning how to incorporate API's into a code and collaboriating with multiple people is good practice for jobs after bootcamp.
 
 ## User Story
 
