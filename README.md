@@ -16,6 +16,8 @@ N/A
 
 When the user goes to the application, they are presented with a quiz to help the user figure out which cocktail may be right for them. Once they press the start button, the questions with multiple options will pop up for the user to answer. The user will be shown a cocktail based on the answers they have picked along with a GIF. If the user does not want to answer any questions, they can click on the random button to get any random cocktail from our API. 
 
+![Alt text](assets/images/Screenshot.jpeg)
+
 ## Deployment Link
 
 https://mkickham.github.io/CocktailGif/ 
